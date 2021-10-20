@@ -1,0 +1,25 @@
+{
+  "name": "node---martian-robots-code-challenge",
+  "version": "1.0.0",
+  "description": "NODE - Martian Robots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuadantonio/NODE---Martian-Robots-Code-Challenge.git"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "Antonio Cuadrado Álvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuadantonio/NODE---Martian-Robots-Code-Challenge/issues"
+  },
+  "homepage": "https://github.com/cuadantonio/NODE---Martian-Robots-Code-Challenge#readme",
+  "dependencies": {
+    "line-reader": "^0.4.0"
+  }
+}

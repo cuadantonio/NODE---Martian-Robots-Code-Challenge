@@ -18,7 +18,7 @@ class Robot {
         return this.orientation;
     }
 
-    isLost(){
+    getLost(){
         return this.isLost;
     }
 
@@ -57,16 +57,38 @@ class Robot {
     setLost(){
         this.isLost=true;
     }
-    transformOrientation(){
-        if(this.orientation=="N"){
-            this.orientation=0;
-        }else if(this.orientation=="E"){
-            this.orientation=90;
-        }else if(this.orientation=="S"){
-            this.orientation=180;
-        }else if(this.orientation=="W"){
-            this.orientation=270;
+    transformOrientationFromStringToInt(){
+        switch (this.orientation){
+            case "N":
+                this.orientation=0;
+                break;
+            case "E":
+                this.orientation=90;
+                break;
+            case "S":
+                this.orientation=180;
+                break;
+            case "W":
+                this.orientation=270;
+                break;
         }
+    }
+    transformOrientationFromIntToString(){
+        switch (this.orientation){
+            case 0:
+                this.orientation="N";
+                break;
+            case 90:
+                this.orientation="E";
+                break;
+            case 180:
+                this.orientation="S";
+                break;
+            case 270:
+                this.orientation="W";
+                break;
+        }
+
     }
 }
 

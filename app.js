@@ -1,3 +1,5 @@
+/**/
+
 const fs = require('fs');
 const Robot = require('./robot.js');
 const CommandL = require('./commandl.js');
@@ -10,21 +12,23 @@ const lines = data.split(/\r?\n/);
 const limitX = lines[0].split(" ")[0];
 const limitY = lines[0].split(" ")[1];
 
+fs.writeFile('output.txt',"",err=>{
+    if(err){
+        console.error(err);
+        return
+    }
+})
 
 for(var i = 1;i<lines.length;i=i+2){
     const robotX = parseInt(lines[i].split(" ")[0]);
     const robotY = parseInt(lines[i].split(" ")[1]);
     const robotOrientation = lines[i].split(" ")[2];
     let robot = new Robot(robotX,robotY,robotOrientation);
-    robot.transformOrientation();
-    console.log("Inicial");
-    console.log(robot.getX());
-    console.log(robot.getY());
-    console.log(robot.getOrientation());
+    robot.transformOrientationFromStringToInt();
     const commsAux = lines[i+1];
     let comms = commsAux.split("");
     for (let j = 0; j < comms.length; j++) {
-        if(robot.isLost===true){
+        if(robot.getLost()===true){
             break;
         }
         const commandAux = comms[j];
@@ -44,16 +48,24 @@ for(var i = 1;i<lines.length;i=i+2){
         }
         
     }
-    console.log("Final");
-    console.log(robot.getX());
-    console.log(robot.getY());
-    console.log(robot.getOrientation());
-    //console.log(robot.getOrientation());
-    //console.log(comms);
+    robot.transformOrientationFromIntToString()
+    if(robot.getLost()===true) {
+        const finalRobot = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() + " LOST"+"\n";
+        fs.appendFile('output.txt',finalRobot,err=>{
+            if(err){
+                console.error(err);
+                return
+            }
+        })
+    }else{
+        const finalRobot = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() +"\n";
+        fs.appendFile('output.txt',finalRobot,err=>{
+            if(err){
+                console.error(err);
+                return
+            }
+        })
+    }
+
 }
 
-//var robot = new Robot(1,1,0);
-//let command = new CommandL(robot);
-//console.log(robot.getOrientation());
-//robot = command.executeCommand();
-//console.log(robot.getOrientation());

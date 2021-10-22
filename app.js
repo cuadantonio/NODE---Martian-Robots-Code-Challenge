@@ -87,13 +87,17 @@ for(var i = 1;i<lines.length;i=i+2){
     * gonna write the output on console in a format or another and once we write the robot on the console
     * we go on to read from the input file the next robot data and execute its corresponding commands
     * */
-    if(robot.getLost()===true) {
-        const finalRobot = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() + " LOST"+"\n";
-        console.log(finalRobot);
-    }else{
-        const finalRobot = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() +"\n";
-        console.log(finalRobot);
+    switch(robot.getLost()){
+        case true:
+            const finalRobotLost = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() + " LOST"+"\n";
+            console.log(finalRobotLost);
+            break;
+        case false:
+            const finalRobotNotLost = robot.getX() + " " + robot.getY() + " " + robot.getOrientation() +"\n";
+            console.log(finalRobotNotLost);
+            break;
     }
+
 
 }
 

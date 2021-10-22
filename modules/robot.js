@@ -48,7 +48,10 @@ class Robot {
     moveWest(){
         this.x-=1;
     }
-
+    /*
+    * The nex two methods are used to rotate the robot to the corresponding orientation depending if it has to rotate right
+    * or left
+    * */
     rotateLeft(){
         if(this.orientation==0){
             this.orientation=270;
@@ -64,10 +67,15 @@ class Robot {
             this.orientation=this.orientation+90;
         }
     }
-
+    /*
+    * This method is used to make the robot lost when needed
+    * */
     setLost(){
         this.isLost=true;
     }
+    /*
+    * This two last methods are used to change the orientation format
+    * */
     transformOrientationFromStringToInt(){
         switch (this.orientation){
             case "N":

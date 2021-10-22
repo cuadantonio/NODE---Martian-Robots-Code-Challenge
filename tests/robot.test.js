@@ -1,4 +1,12 @@
-const Robot = require('../robot.js');
+/*
+* The main functionality of this file is to test if all the methods from the Robot object work properly
+*
+* Also, we only have test of the Robot methods because the only other objects that could be tested are the different
+* command objects but their methods are based mainly on the robot object methods so, if the robot methods work properly,
+* the command methods are going to work properly
+* */
+
+const Robot = require('../modules/robot.js');
 const robot1 = new Robot(1,1,"N");
 const robot2 = new Robot(1,1,"N");
 const robot3 = new Robot(1,1,"N");

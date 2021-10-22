@@ -1,11 +1,20 @@
+/*
+* This object represents the robot and has the attributes to store the data of a robot and the methods to change its values
+* */
 class Robot {
+    /*
+    * This method is used to create a robot with the attributes x, y and orientation depending on the parameters we pass
+    * to it but setting the parameter isLost false on default
+    * */
     constructor(x,y,orientation){
         this.x=x;
         this.y=y;
         this.orientation=orientation;
         this.isLost=false;
     }
-
+    /*
+    * This first four methods are used to get the value of each of the corresponding attributes
+    * */
     getX(){
         return this.x;
     }
@@ -21,7 +30,9 @@ class Robot {
     getLost(){
         return this.isLost;
     }
-
+    /*
+    * This next four methods are used to change the robot x or y attribute on a different way depending of every method
+    * */
     moveNorth(){
         this.y+=1;
     }
